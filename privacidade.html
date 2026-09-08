@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Política de Privacidade | SaraNet</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Barlow+Condensed:wght@700;800;900&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+  <style>
+    /* ── Página de privacidade ── */
+    .privacy-hero {
+      padding: calc(var(--navbar-h) + 64px) 0 64px;
+      background: var(--clr-surface);
+      border-bottom: 1px solid var(--clr-border);
+      text-align: center;
+    }
+
+    .privacy-hero .hero-eyebrow { margin-bottom: 16px; }
+
+    .privacy-hero h1 {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      font-weight: 900;
+      margin-bottom: 16px;
+    }
+
+    .privacy-hero p {
+      color: var(--clr-muted);
+      font-size: 0.95rem;
+    }
+
+    .privacy-body {
+      padding: 80px 0;
+      background: var(--clr-bg);
+    }
+
+    .privacy-layout {
+      display: grid;
+      grid-template-columns: 240px 1fr;
+      gap: 60px;
+      align-items: start;
+    }
+
+    /* Índice lateral */
+    .privacy-index {
+      position: sticky;
+      top: calc(var(--navbar-h) + 24px);
+      background: var(--clr-surface);
+      border: 1px solid var(--clr-border);
+      border-radius: var(--radius-lg);
+      padding: 24px;
+    }
+
+    .privacy-index p {
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--clr-muted);
+      margin-bottom: 16px;
+    }
+
+    .privacy-index nav {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .privacy-index a {
+      font-size: 0.85rem;
+      color: var(--clr-muted);
+      padding: 8px 10px;
+      border-radius: 8px;
+      transition: all var(--transition);
+      line-height: 1.4;
+    }
+
+    .privacy-index a:hover {
+      color: var(--clr-text);
+      background: var(--clr-surface2);
+    }
+
+    .privacy-index a.active {
+      color: var(--clr-accent);
+      background: rgba(79,142,247,0.08);
+      font-weight: 600;
+    }
+
+    /* Conteúdo */
+    .privacy-content {
+      display: flex;
+      flex-direction: column;
+      gap: 48px;
+    }
+
+    .privacy-section {
+      scroll-margin-top: calc(var(--navbar-h) + 24px);
+    }
+
+    .privacy-section-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 20px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--clr-border);
+    }
+
+    .privacy-section-icon {
+      width: 40px;
+      height: 40px;
+      background: linear-gradient(135deg, rgba(79,142,247,0.15), rgba(123,92,250,0.15));
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .privacy-section-icon .material-icons {
+      font-size: 20px;
+      color: var(--clr-accent);
+    }
+
+    .privacy-section h2 {
+      font-family: var(--font-display);
+      font-size: 1.4rem;
+      font-weight: 800;
+    }
+
+    .privacy-section p {
+      font-size: 0.95rem;
+      color: var(--clr-muted);
+      line-height: 1.8;
+      margin-bottom: 14px;
+    }
+
+    .privacy-section p:last-child { margin-bottom: 0; }
+
+    .privacy-section ul {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin: 16px 0;
+      padding-left: 4px;
+    }
+
+    .privacy-section ul li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 0.93rem;
+      color: var(--clr-muted);
+      line-height: 1.6;
+    }
+
+    .privacy-section ul li::before {
+      content: '';
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--clr-accent);
+      flex-shrink: 0;
+      margin-top: 7px;
+    }
+
+    .privacy-highlight {
+      background: linear-gradient(135deg, rgba(79,142,247,0.08), rgba(123,92,250,0.08));
+      border: 1px solid rgba(79,142,247,0.2);
+      border-radius: var(--radius);
+      padding: 20px 24px;
+      margin: 20px 0;
+    }
+
+    .privacy-highlight p {
+      font-size: 0.92rem;
+      color: var(--clr-text);
+      margin: 0;
+    }
+
+    .privacy-highlight strong { color: var(--clr-accent); }
+
+    .privacy-contact-card {
+      background: var(--clr-surface);
+      border: 1px solid var(--clr-border);
+      border-radius: var(--radius-lg);
+      padding: 28px;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      margin-top: 12px;
+    }
+
+    .privacy-contact-card .material-icons {
+      font-size: 32px;
+      color: var(--clr-accent);
+      flex-shrink: 0;
+    }
+
+    .privacy-contact-card strong {
+      display: block;
+      font-size: 0.95rem;
+      margin-bottom: 4px;
+    }
+
+    .privacy-contact-card a {
+      color: var(--clr-accent);
+      font-size: 0.9rem;
+      font-weight: 500;
+    }
+
+    .privacy-contact-card a:hover { text-decoration: underline; }
+
+    .privacy-update {
+      text-align: center;
+      padding: 48px 0 0;
+      border-top: 1px solid var(--clr-border);
+      color: var(--clr-muted);
+      font-size: 0.85rem;
+    }
+
+    @media (max-width: 768px) {
+      .privacy-layout { grid-template-columns: 1fr; }
+      .privacy-index { position: static; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <header class="navbar" id="navbar">
+    <div class="container nav-inner">
+      <a href="index.html" class="logo">
+        <img src="saranetnova.png" alt="SaraNet Logo" class="logo-dark" />
+        <img src="saranetnova2.png" alt="SaraNet Logo" class="logo-light" />
+      </a>
+      <nav class="nav-links">
+        <a href="https://www.speedtest.net/pt" target="_blank">Teste de Velocidade</a>
+        <a href="index.html">Voltar para a página inicial</a>
+      </nav>
+      <div class="nav-actions">
+        <button class="theme-toggle" id="themeToggle" aria-label="Alternar tema">
+          <span class="material-icons" id="themeIcon">light_mode</span>
+        </button>
+        <button class="menu-btn" id="menuBtn" aria-label="Abrir menu">
+          <span class="material-icons">menu</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile menu -->
+  <div class="mobile-menu" id="mobileMenu">
+    <button class="close-btn" id="closeMenu">
+      <span class="material-icons">close</span>
+    </button>
+    <nav>
+      <a href="index.html" class="mobile-link">Voltar para a página inicial</a>
+      <a href="https://www.speedtest.net/pt" target="_blank" class="mobile-link">Teste de Velocidade</a>
+    </nav>
+  </div>
+
+  <!-- HERO -->
+  <section class="privacy-hero">
+    <div class="container">
+      <span class="hero-eyebrow">TRANSPARÊNCIA</span>
+      <h1>Política de Privacidade</h1>
+      <p>Última atualização: agosto de 2026 · SaraNet Telecom</p>
+    </div>
+  </section>
+
+  <!-- CONTEÚDO -->
+  <section class="privacy-body">
+    <div class="container">
+      <div class="privacy-layout">
+
+        <!-- Índice -->
+        <aside class="privacy-index">
+          <p>Nesta página</p>
+          <nav id="privacyNav">
+            <a href="#coleta" class="active">1. Dados coletados</a>
+            <a href="#uso">2. Uso dos dados</a>
+            <a href="#compartilhamento">3. Compartilhamento</a>
+            <a href="#cookies">4. Cookies</a>
+            <a href="#armazenamento">5. Armazenamento</a>
+            <a href="#direitos">6. Seus direitos</a>
+            <a href="#seguranca">7. Segurança</a>
+            <a href="#menores">8. Menores de idade</a>
+            <a href="#alteracoes">9. Alterações</a>
+            <a href="#contato">10. Contato</a>
+          </nav>
+        </aside>
+
+        <!-- Seções -->
+        <div class="privacy-content">
+
+          <div class="privacy-highlight">
+            <p>A <strong>SaraNet Telecom</strong> respeita sua privacidade e está comprometida com a proteção dos seus dados pessoais, em conformidade com a <strong>Lei Geral de Proteção de Dados (LGPD — Lei nº 13.709/2018)</strong>. Leia com atenção para entender como tratamos suas informações.</p>
+          </div>
+
+          <div class="privacy-section" id="coleta">
+            <div class="privacy-section-header">
+              <div class="privacy-section-icon"><span class="material-icons">database</span></div>
+              <h2>1. Dados que coletamos</h2>
+            </div>
+            <p>Para prestar nossos serviços de internet com qualidade, coletamos as seguintes informações:</p>
+            <ul>
+              <li>Nome completo, CPF/CNPJ e data de nascimento</li>
+              <li>Endereço de instalação e endereço de cobrança</li>
+              <li>Telefone, WhatsApp e e-mail de contato</li>
+              <li>Dados bancários para débito automático (quando autorizado)</li>
+              <li>Informações técnicas de uso da rede (tráfego, IP, logs de conexão)</li>
+              <li>Dados de navegação no nosso site (via cookies)</li>
+            </ul>
+            <p>Coletamos apenas o necessário para a prestação do serviço contratado, suporte técnico e cumprimento de obrigações legais.</p>
+          </div>
+
+          <div class="privacy-section" id="uso">
+            <div class="privacy-section-header">
+              <div class="privacy-section-icon"><span class="material-icons">settings</span></div>
+              <h2>2. Como usamos seus dados</h2>
+            </div>
+            <p>Utilizamos seus dados pessoais para as seguintes finalidades:</p>
+            <ul>
+              <li>Ativação, gerenciamento e suporte ao serviço de internet</li>
+              <li>Emissão de faturas, cobranças e controle financeiro</li>
+              <li>Comunicações sobre manutenções, interrupções e avisos técnicos</li>
+              <li>Envio de ofertas e promoções exclusivas (mediante consentimento)</li>
+              <li>Cumprimento de obrigações legais e regulatórias</li>
+              <li>Melhoria contínua dos nossos serviços e atendimento</li>
+            </ul>
+          </div>
+
+          <div class="privacy-section" id="compartilhamento">
+            <div class="privacy-section-header">
+              <div class="privacy-section-icon"><span class="material-icons">share</span></div>
+              <h2>3. Compartilhamento de dados</h2>
+            </div>
+            <p>A SaraNet <strong>não vende</strong> seus dados pessoais a terceiros. Podemos compartilhá-los apenas nas seguintes situações:</p>
+            <ul>
+              <li>Parceiros de cobrança e operadoras de pagamento, para processamento financeiro</li>
+              <li>Prestadores de serviços técnicos contratados, com obrigação de confidencialidade</li>
+              <li>Órgãos governamentais ou judiciais, quando exigido por lei</li>
+              <li>Empresas do grupo SaraNet, para fins operacionais internos</li>
+            </ul>
+            <div class="privacy-highlight">
+              <p>Todos os parceiros que acessam seus dados são contratualmente obrigados a mantê-los em sigilo e utilizá-los apenas para a finalidade específica autorizada.</p>
+            </div>
+          </div>
+
+          <div class="privacy-section" id="cookies">
+            <div class="privacy-section-header">
+              <div class="privacy-section-icon"><span class="material-icons">cookie</span></div>
+              <h2>4. Cookies e rastreamento</h2>
+            </div>
+            <p>Nosso site utiliza cookies para melhorar sua experiência de navegação. Os tipos utilizados são:</p>
+            <ul>
+              <li><strong>Essenciais:</strong> necessários para o funcionamento básico do site</li>
+              <li><strong>Preferências:</strong> lembram suas configurações, como tema claro/escuro</li>
+              <li><strong>Analíticos:</strong> nos ajudam a entender como o site é usado (de forma anônima)</li>
+            </ul>
+            <p>Você pode desativar os cookies nas configurações do seu navegador a qualquer momento, mas isso pode afetar algumas funcionalidades do site.</p>
+          </div>
+
+          <div class="privacy-section" id="armazenamento">
+            <div class="privacy-section-header">
+              <div class="privacy-section-icon"><span class="material-icons">storage</span></div>
+              <h2>5. Armazenamento e retenção</h2>
+            </div>
+            <p>Seus dados são armazenados em servidores seguros localizados no Brasil. Mantemos suas informações pelo período necessário para:</p>
+            <ul>
+              <li>Vigência do contrato de serviço</li>
+              <li>Cumprimento de obrigações legais e fiscais (mínimo de 5 anos)</li>
+              <li>Resolução de eventuais disputas ou processos judiciais</li>
+            </ul>
+            <p>Após o prazo legal, seus dados são eliminados de forma segura e definitiva.</p>
+          </div>
+
+          <div class="privacy-section" id="direitos">
+            <div class="privacy-section-header">
+              <div class="privacy-section-icon"><span class="material-icons">verified_user</span></div>
+              <h2>6. Seus direitos (LGPD)</h2>
+            </div>
+            <p>De acordo com a LGPD, você tem os seguintes direitos em relação aos seus dados pessoais:</p>
+            <ul>
+              <li><strong>Acesso:</strong> solicitar a qualquer momento uma cópia dos seus dados</li>
+              <li><strong>Correção:</strong> pedir a atualização de informações incorretas ou desatualizadas</li>
+              <li><strong>Exclusão:</strong> solicitar a remoção dos dados quando não forem mais necessários</li>
+              <li><strong>Portabilidade:</strong> receber seus dados em formato estruturado</li>
+              <li><strong>Revogação:</strong> retirar o consentimento dado para uso dos seus dados</li>
+              <li><strong>Oposição:</strong> se opor a determinados tipos de tratamento</li>
+            </ul>
+            <p>Para exercer qualquer um desses direitos, entre em contato conosco pelo WhatsApp ou e-mail indicados na seção de contato.</p>
+          </div>
+
+          <div class="privacy-section" id="seguranca">
+            <div class="privacy-section-header">
+              <div class="privacy-section-icon"><span class="material-icons">security</span></div>
+              <h2>7. Segurança dos dados</h2>
+            </div>
+            <p>Adotamos medidas técnicas e organizacionais para proteger seus dados contra acesso não autorizado, perda, alteração ou divulgação indevida:</p>
+            <ul>
+              <li>Criptografia de dados em trânsito e em repouso</li>
+              <li>Controle de acesso restrito por nível de permissão</li>
+              <li>Monitoramento contínuo de sistemas e redes</li>
+              <li>Treinamento periódico da equipe sobre boas práticas de segurança</li>
+            </ul>
+            <p>Em caso de incidente de segurança que afete seus dados, notificaremos as autoridades competentes e os titulares afetados no prazo legal.</p>
+          </div>
+
+          <div class="privacy-section" id="menores">
+            <div class="privacy-section-header">
+              <div class="privacy-section-icon"><span class="material-icons">child_care</span></div>
+              <h2>8. Menores de idade</h2>
+            </div>
+            <p>Nossos serviços não são direcionados a menores de 18 anos. Não coletamos intencionalmente dados pessoais de crianças ou adolescentes sem o consentimento expresso dos pais ou responsáveis legais.</p>
+            <p>Caso identifiquemos que coletamos dados de um menor sem autorização adequada, esses dados serão imediatamente excluídos.</p>
+          </div>
+
+          <div class="privacy-section" id="alteracoes">
+            <div class="privacy-section-header">
+              <div class="privacy-section-icon"><span class="material-icons">update</span></div>
+              <h2>9. Alterações nesta política</h2>
+            </div>
+            <p>Esta Política de Privacidade pode ser atualizada periodicamente para refletir mudanças em nossas práticas, serviços ou exigências legais.</p>
+            <p>Sempre que houver alterações relevantes, notificaremos você por e-mail ou por aviso em destaque no nosso site. Recomendamos que você revise esta página regularmente.</p>
+            <p>O uso contínuo dos nossos serviços após a publicação de alterações indica sua concordância com a versão atualizada.</p>
+          </div>
+
+          <div class="privacy-section" id="contato">
+            <div class="privacy-section-header">
+              <div class="privacy-section-icon"><span class="material-icons">contact_support</span></div>
+              <h2>10. Contato e DPO</h2>
+            </div>
+            <p>Para dúvidas, solicitações ou exercício dos seus direitos relacionados à privacidade, entre em contato com nosso Encarregado de Dados (DPO):</p>
+            <div class="privacy-contact-card">
+              <span class="material-icons">chat</span>
+              <div>
+                <strong>WhatsApp — Atendimento ao Cliente</strong>
+                <a href="https://wa.me/5544991055040" target="_blank">(44) 99105-5040</a>
+              </div>
+            </div>
+            <div class="privacy-contact-card">
+              <span class="material-icons">mail</span>
+              <div>
+                <strong>E-mail</strong>
+                <a href="mailto:contato@saranet.com.br">contato@saranet.com.br</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="privacy-update">
+            <p>Política de Privacidade — SaraNet Telecom · Vigente a partir de agosto de 2026</p>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+ <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container footer-grid">
+
+      <!-- Coluna 1: Logo + desc + sociais -->
+      <div class="footer-brand">
+        <img src="saranetnova.png" alt="SaraNet" class="footer-logo logo-dark" />
+        <img src="saranetnova2.png" alt="SaraNet" class="footer-logo logo-light" />
+        <p class="footer-desc"></p>
+        <p class="footer-social-label">NOS ACOMPANHE</p>
+        <div class="footer-socials">
+          <a href="https://instagram.com/sarainformatica" target="_blank" class="footer-social-btn" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+          </a>
+          <a href="https://wa.me/5544991055040" target="_blank" class="footer-social-btn" aria-label="WhatsApp">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Coluna 2: Explore -->
+      <div class="footer-col">
+        <p class="footer-col-title">EXPLORE</p>
+        <nav>
+          <a href="#home">Home</a>
+          <a href="#beneficios">Benefícios</a>
+          <a href="#quem-somos">Quem Somos</a>
+          <a href="#planos">Planos</a>
+          <a href="#faq">Dúvidas</a>
+        </nav>
+      </div>
+
+      <!-- Coluna 3: Planos -->
+      <div class="footer-col">
+        <p class="footer-col-title">PLANOS</p>
+        <nav>
+          <a href="https://wa.me/5544991055040" target="_blank">Residencial</a>
+          <a href="https://wa.me/5544991055040" target="_blank">Empresarial</a>
+        </nav>
+      </div>
+
+      <!-- Coluna 4: Informações -->
+      <div class="footer-col">
+        <p class="footer-col-title">INFORMAÇÕES</p>
+        <nav>
+          <a href="privacidade.html" target="_blank">Política de Privacidade</a>
+          <a href="#faq">FAQ</a>
+          <a href="https://wa.me/5544991055040" target="_blank">Suporte</a>
+          <a href="https://wa.me/5544991055040" target="_blank">Trabalhe Conosco</a>
+        </nav>
+      </div>
+
+      <!-- Coluna 5: Contato -->
+      <div class="footer-col">
+        <p class="footer-col-title">CONTATO</p>
+        <nav>
+          <a href="https://wa.me/5544991055040" target="_blank">(44) 99105-5040</a>
+          <a href="mailto:contato@saranet.com.br">contato@saranet.com.br</a>
+          <a href="https://instagram.com/sarainformatica" target="_blank">@sarainformatica</a>
+        </nav>
+      </div>
+
+        <!-- Coluna: Localização -->
+      <div class="footer-col footer-map-col">
+        <p class="footer-col-title">ONDE ESTAMOS</p>
+        <div class="footer-map">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3697.8!2d-52.5897!3d-23.5334!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ecd0e2a1234567%3A0x0!2sAv.+Jos%C3%A9+Madureira%2C+979+-+S%C3%A3o+Tom%C3%A9%2C+PR!5e0!3m2!1spt-BR!2sbr!4v1686000000000!5m2!1spt-BR!2sbr"
+            width="100%"
+            height="180"
+            style="border:0;"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
+        </div>
+        <p class="footer-address">
+          <span class="material-icons" style="font-size:14px; vertical-align:middle; color:var(--clr-accent)">location_on</span>
+          Av. José Madureira, 979 — São Tomé - PR, 87220-000
+        </p>
+      </div>
+
+    </div>
+
+
+    <!-- Bottom bar -->
+    <div class="footer-bottom">
+    <span>© 2026 SaraNet Telecom — Todos os direitos reservados.</span>
+    <span class="footer-dev">
+      Desenvolvido por
+      <a href="https://www.zyntekconnect.com.br" target="_blank">
+        <img src="zyntek_logo_hq.png" alt="Zyntek" class="footer-zyntek-logo" />
+      </a>
+    </span>
+  </div>
+  </footer>
+
+  <script>
+    // Tema
+    const html = document.documentElement;
+    const themeToggle = document.getElementById('themeToggle');
+    const themeIcon   = document.getElementById('themeIcon');
+    const saved = localStorage.getItem('saranet-theme') || 'dark';
+    applyTheme(saved);
+    themeToggle.addEventListener('click', () => {
+      applyTheme(html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark');
+    });
+    function applyTheme(t) {
+      html.setAttribute('data-theme', t);
+      themeIcon.textContent = t === 'dark' ? 'light_mode' : 'dark_mode';
+      localStorage.setItem('saranet-theme', t);
+    }
+
+    // Navbar scroll
+    const navbar = document.getElementById('navbar');
+    let lastScroll = 0;
+    window.addEventListener('scroll', () => {
+      const cur = window.scrollY;
+      if (cur <= 60) { navbar.classList.remove('nav-hidden', 'scrolled'); }
+      else if (cur > lastScroll) { navbar.classList.add('nav-hidden'); }
+      else { navbar.classList.remove('nav-hidden'); navbar.classList.add('scrolled'); }
+      lastScroll = cur;
+    }, { passive: true });
+
+    // Menu mobile
+    const menuBtn    = document.getElementById('menuBtn');
+    const closeMenu  = document.getElementById('closeMenu');
+    const mobileMenu = document.getElementById('mobileMenu');
+    menuBtn.addEventListener('click', () => { mobileMenu.classList.add('open'); document.body.style.overflow = 'hidden'; });
+    closeMenu.addEventListener('click', () => { mobileMenu.classList.remove('open'); document.body.style.overflow = ''; });
+    document.querySelectorAll('.mobile-link').forEach(l => l.addEventListener('click', () => { mobileMenu.classList.remove('open'); document.body.style.overflow = ''; }));
+
+    // Índice ativo ao rolar
+    const sections = document.querySelectorAll('.privacy-section');
+    const navLinks = document.querySelectorAll('#privacyNav a');
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          navLinks.forEach(a => a.classList.remove('active'));
+          const link = document.querySelector(`#privacyNav a[href="#${e.target.id}"]`);
+          if (link) link.classList.add('active');
+        }
+      });
+    }, { threshold: 0.4 });
+    sections.forEach(s => io.observe(s));
+  </script>
+  
+  
+</body>
+</html>

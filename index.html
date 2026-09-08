@@ -1,0 +1,846 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SaraNet Telecom | Fibra Óptica de Alta Velocidade no Noroeste do Paraná</title>
+  
+  <!-- SEO & Metatags -->
+  <meta name="description" content="Provedor de internet fibra óptica 100% real em São Tomé e Noroeste do Paraná. Conexão ultrarrápida de 400 a 900 Mega com baixa latência e suporte local humanizado." />
+  <meta name="keywords" content="internet fibra optica, sao tome pr, saranet telecom, internet gamer, planos de internet noroeste parana" />
+  <meta name="theme-color" content="#ffc913" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="SaraNet Telecom | Conexão Ultrarrápida" />
+  <meta property="og:description" content="Navegue com ultra velocidade e estabilidade. Conheça nossos planos de fibra óptica." />
+  <meta property="og:image" content="saranetnova.png" />
+
+  <!-- Estilos e Tipografia -->
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800;900&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- Canvas Dinâmico de Fibra Óptica e Redes (Dark & Light) -->
+  <canvas id="bgFiberCanvas" class="bg-fiber-canvas" aria-hidden="true"></canvas>
+
+  <!-- Barra Amarela de Progresso no Topo -->
+  <div class="scroll-progress-bar" id="scrollProgress"></div>
+
+  <!-- NAVBAR (FIXA E ACOMPANHA O SCROLL CONTINUAMENTE) -->
+  <header class="navbar" id="navbar">
+    <div class="container nav-inner">
+      <a href="#home" class="logo" id="logo" aria-label="SaraNet Início">
+        <img src="saranetnova.png" alt="SaraNet Logo" class="logo-dark" />
+        <img src="saranetnova2.png" alt="SaraNet Logo" class="logo-light" />
+      </a>
+
+      <nav class="nav-links" id="navLinks">
+        <a href="#beneficios">Benefícios</a>
+        <a href="#quem-somos">Quem Somos</a>
+        <a href="#planos">Planos</a>
+        <a href="#como-assinar">Como Assinar</a>
+        <a href="#faq">Dúvidas</a>
+        <a href="https://www.speedtest.net/pt" target="_blank" rel="noopener" class="nav-speedtest">
+          <span class="material-icons">speed</span> Teste de Velocidade
+        </a>
+      </nav>
+
+      <div class="nav-actions">
+        <button class="theme-toggle" id="themeToggle" aria-label="Alternar tema claro/escuro" title="Alternar tema">
+          <span class="material-icons" id="themeIcon">light_mode</span>
+        </button>
+        <button class="menu-btn" id="menuBtn" aria-label="Abrir menu de navegação">
+          <span class="material-icons">menu</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- MENU MOBILE -->
+  <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+    <button class="close-btn" id="closeMenu" aria-label="Fechar menu">
+      <span class="material-icons">close</span>
+    </button>
+    <div class="mobile-menu-logo">
+      <img src="saranetnova.png" alt="SaraNet Logo" class="logo-dark" />
+      <img src="saranetnova2.png" alt="SaraNet Logo" class="logo-light" />
+    </div>
+    <nav>
+      <a href="#beneficios" class="mobile-link">Benefícios</a>
+      <a href="#quem-somos" class="mobile-link">Quem Somos</a>
+      <a href="#planos" class="mobile-link">Planos</a>
+      <a href="#como-assinar" class="mobile-link">Como Assinar</a>
+      <a href="#faq" class="mobile-link">Dúvidas Frequentes</a>
+      <a href="https://www.speedtest.net/pt" target="_blank" rel="noopener" class="mobile-link">Teste de Velocidade</a>
+      <a href="privacidade.html" class="mobile-link text-small">Política de Privacidade</a>
+    </nav>
+    <a href="https://wa.me/5544991055040?text=Olá!%20Gostaria%20de%20consultar%20a%20cobertura%20da%20SaraNet." target="_blank" class="btn btn-primary w-full">
+      <span class="material-icons">chat</span> Falar com Consultor
+    </a>
+  </div>
+
+  <!-- HERO SECTION -->
+  <section class="hero" id="home">
+    <div class="hero-bg">
+      <img src="https://sara-coral-eight.vercel.app/fundo.gif" alt="Fundo animado fibra óptica" />
+      <div class="hero-overlay"></div>
+    </div>
+    
+    <div class="container hero-container">
+      <div class="hero-content">
+        <div class="hero-badge-group">
+          <span class="hero-hero">
+            <span class="material-icons icon-inline">bolt</span> 100% FIBRA ÓPTICA REAL
+          </span>
+          <span class="hero-tag-local">
+            <span class="material-icons">location_on</span> São Tomé & Noroeste PR
+          </span>
+        </div>
+
+        <h1 class="hero-title">
+          Internet ultrarrápida para quem não quer <span class="highlight-text">perder tempo.</span>
+        </h1>
+        
+        <p class="hero-sub">
+          Conecte sua casa ou empresa com estabilidade máxima, baixíssima latência para jogos e streaming 4K, e o único suporte 100% humanizado da nossa região.
+        </p>
+
+        <div class="hero-actions">
+          <a href="https://wa.me/5544991055040?text=Olá!%20Quero%20contratar%20a%20SaraNet." target="_blank" class="btn btn-primary btn-lg shadow-glow">
+            <span class="material-icons">chat</span>
+            Contratar Agora
+          </a>
+          <a href="#planos" class="btn btn-secondary btn-lg">
+            <span class="material-icons">expand_more</span>
+            Ver Planos & Preços
+          </a>
+        </div>
+
+        <div class="hero-highlights">
+          <div class="hero-hl-item">
+            <span class="material-icons">all_inclusive</span>
+            <span>Sem Limite de Franquia</span>
+          </div>
+          <div class="hero-hl-item">
+            <span class="material-icons">headset_mic</span>
+            <span>Suporte Local em até 48h</span>
+          </div>
+          <div class="hero-hl-item">
+            <span class="material-icons">router</span>
+            <span>Wi-Fi Gigabit Incluso</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Radar Wi-Fi Animado na Lateral do Hero -->
+      <div class="hero-visual-side">
+        <div class="wifi-radar-card">
+          <!-- Ondas de Sinal Wi-Fi -->
+          <div class="wifi-pulse-wrapper">
+            <div class="wifi-wave wave-1"></div>
+            <div class="wifi-wave wave-2"></div>
+            <div class="wifi-wave wave-3"></div>
+            <div class="wifi-hub-icon">
+              <span class="material-icons wifi-center-icon">wifi</span>
+            </div>
+          </div>
+
+          <!-- Badges flutuantes com métricas de rede -->
+          <div class="metric-badge metric-top">
+            <div class="metric-icon-box">
+              <span class="material-icons">speed</span>
+            </div>
+            <div>
+              <span class="metric-title">Velocidade Máxima</span>
+              <strong class="metric-val">Até 900 Mbps</strong>
+            </div>
+          </div>
+
+          <div class="metric-badge metric-bottom-left">
+            <div class="metric-icon-box ping-icon">
+              <span class="material-icons">sports_esports</span>
+            </div>
+            <div>
+              <span class="metric-title">Latência / PING</span>
+              <strong class="metric-val text-green">≤ 9ms Estável</strong>
+            </div>
+          </div>
+
+          <div class="metric-badge metric-bottom-right">
+            <div class="metric-icon-box status-icon">
+              <span class="wifi-signal-bars">
+                <span class="bar b1"></span>
+                <span class="bar b2"></span>
+                <span class="bar b3"></span>
+                <span class="bar b4"></span>
+              </span>
+            </div>
+            <div>
+              <span class="metric-title">Sinal Fibra FTTH</span>
+              <strong class="metric-val">100% Estável</strong>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BARRA DE COBERTURA -->
+  <section class="section-coverage-bar">
+    <div class="container">
+      <div class="coverage-box">
+        <div class="coverage-title">
+          <div class="coverage-icon-pulse">
+            <span class="material-icons">wifi_tethering</span>
+          </div>
+          <div>
+            <strong>Consulte a viabilidade no seu endereço</strong>
+            <p>Atendimento prioritário para São Tomé - PR e região noroeste</p>
+          </div>
+        </div>
+        <form class="coverage-form" id="coverageForm" onsubmit="handleCoverageCheck(event)">
+          <div class="input-icon-wrapper">
+            <span class="material-icons">home</span>
+            <input type="text" id="coverageAddress" placeholder="Digite seu bairro ou rua..." required />
+          </div>
+          <button type="submit" class="btn btn-primary">
+            <span>Consultar</span>
+            <span class="material-icons">arrow_forward</span>
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- BENEFÍCIOS -->
+  <section class="section benefits" id="beneficios">
+    <div class="container">
+      <div class="section-header">
+        <span class="eyebrow">DIFERENCIAIS EXCLUSIVOS</span>
+        <h2>
+          Por que escolher a 
+          <span class="logo-inline-wrap">
+            <img src="saranetnova.png" alt="SaraNet Logo" class="logo-dark" />
+            <img src="saranetnova2.png" alt="SaraNet Logo" class="logo-light" />
+          </span>?
+        </h2>
+        <p>Infraestrutura moderna e tecnologia de ponta para você nunca ficar offline.</p>
+      </div>
+
+      <div class="benefits-grid">
+        <div class="benefit-card">
+          <div class="benefit-icon">
+            <span class="material-icons">cable</span>
+          </div>
+          <h3>Fibra Óptica Pura</h3>
+          <p>Conexão óptica de ponta a ponta até a sua sala (FTTH). Sem interferências por chuvas ou raios.</p>
+        </div>
+
+        <div class="benefit-card">
+          <div class="benefit-icon">
+            <span class="material-icons">sports_esports</span>
+          </div>
+          <h3>Ultra Baixa Latência</h3>
+          <p>Rotas diretas para servidores de jogos online, garantindo o menor ping em jogos de tiro, futebol e streaming.</p>
+        </div>
+
+        <div class="benefit-card">
+          <div class="benefit-icon">
+            <span class="material-icons">play_circle_filled</span>
+          </div>
+          <h3>Streaming 4K Fluido</h3>
+          <p>Assista filmes, séries e partidas de futebol em alta definição em vários cômodos sem travamentos.</p>
+        </div>
+
+        <div class="benefit-card">
+          <div class="benefit-icon">
+            <span class="material-icons">support_agent</span>
+          </div>
+          <h3>Atendimento Local Real</h3>
+          <p>Nada de robôs confusos. Você fala direto com a nossa equipe sediada aqui no Noroeste Paranaense.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- QUEM SOMOS (FUNDO CLARO COM ALTO CONTRASTE) -->
+  <section class="section whoweare" id="quem-somos">
+    <div class="container">
+      <div class="whoweare-inner">
+
+        <div class="whoweare-text">
+          <span class="eyebrow">NOSSA HISTÓRIA</span>
+          <h2>Uma empresa paranaense com compromisso e proximidade real.</h2>
+          <p>
+            A <strong>SaraNet</strong> nasceu no coração do Noroeste Paranaense com um objetivo claro: entregar velocidade de padrão metropolitano com o respeito e o calor humano que só quem é da região sabe oferecer.
+          </p>
+          <p>
+            Aqui você não é apenas um número de protocolo. Nós conhecemos as ruas da nossa cidade e atendemos cada cliente pelo nome.
+          </p>
+          
+          <div class="whoweare-stats">
+            <div class="stat-item">
+              <div class="stat-counter-wrap">
+                <span class="stat-number" data-target="1000">0</span><span class="stat-plus">+</span>
+              </div>
+              <span class="stat-label">Clientes Conectados</span>
+            </div>
+            <div class="stat-item">
+              <div class="stat-counter-wrap">
+                <span class="stat-number" data-target="99">0</span><span class="stat-plus">.9%</span>
+              </div>
+              <span class="stat-label">Uptime Garantido</span>
+            </div>
+            <div class="stat-item">
+              <div class="stat-counter-wrap">
+                <span class="stat-number" data-target="48">0</span><span class="stat-plus">h</span>
+              </div>
+              <span class="stat-label">Meta de Instalação</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="whoweare-values">
+          <div class="value-card">
+            <div class="value-header">
+              <span class="material-icons">handshake</span>
+              <h4>Compromisso</h4>
+            </div>
+            <p>Entregamos exatamente a velocidade contratada com clareza e transparência.</p>
+          </div>
+
+          <div class="value-card">
+            <div class="value-header">
+              <span class="material-icons">pin_drop</span>
+              <h4>100% Local</h4>
+            </div>
+            <p>Técnicos próprios e loja parceira em São Tomé - PR para deslocamento imediato.</p>
+          </div>
+
+          <div class="value-card">
+            <div class="value-header">
+              <span class="material-icons">bolt</span>
+              <h4>Agilidade</h4>
+            </div>
+            <p>Roteadores Gigabit modernos configurados na sua casa por especialistas.</p>
+          </div>
+
+          <div class="value-card">
+            <div class="value-header">
+              <span class="material-icons">favorite</span>
+              <h4>Humanização</h4>
+            </div>
+            <p>Atendimento empático e resolutivo antes, durante e no suporte pós-venda.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- PLANOS (COM ONDA PONTILHADA 3D INTERATIVA NO FUNDO) -->
+  <section class="section plans" id="planos">
+    <!-- Canvas de Fallback Garantido para Onda 3D -->
+    <canvas id="planosCanvas" class="planos-canvas" aria-hidden="true"></canvas>
+
+    <div class="container">
+      <div class="section-header">
+        <span class="eyebrow">ESCOLHA SEU PLANO</span>
+        <h2>Qual plano combina mais com você?</h2>
+        <p>Internet 100% fibra sem limite de franquia e com suporte prioritário.</p>
+        
+        <div class="plans-filter-tabs">
+          <button class="filter-tab active" data-filter="all">Todos os Planos</button>
+          <button class="filter-tab" data-filter="res">Residencial</button>
+          <button class="filter-tab" data-filter="pro">Gamer & Empresas</button>
+        </div>
+      </div>
+
+      <div class="plans-grid">
+
+        <!-- PLANO 1: 400 MEGA (ESSENCIAL) -->
+        <div class="plan-card" data-category="all res">
+          <div class="plan-card-img">
+            <img src="mulher.jpg" alt="SaraNet 400 Mega Essencial" class="plan-bg-img" />
+            <span class="plan-badge badge-contrast">
+              <span class="material-icons badge-icon">bolt</span> Essencial
+            </span>
+            <div class="plan-card-overlay">
+              <p class="plan-card-name">SaraNet Essencial</p>
+              <div class="plan-card-speed">400 <span>MEGA</span></div>
+              <p class="plan-card-lock"><span class="material-icons">verified</span> 100% Fibra Óptica</p>
+            </div>
+          </div>
+          <div class="plan-card-body">
+            <div class="plan-card-price">
+              <span class="plan-currency">R$</span>
+              <span class="plan-value">79</span>
+              <span class="plan-cents">,90</span>
+              <span class="plan-per">/mês</span>
+            </div>
+
+            <a href="https://wa.me/5544991055040?text=Olá!%20Gostaria%20de%20contratar%20o%20plano%20de%20400%20Mega%20(R$79,90)." target="_blank" class="btn btn-primary plan-btn">
+              <span class="material-icons">send</span> Contratar Plano
+            </a>
+
+            <!-- Prós e Contras (Com ícones vetoriais em vez de emojis) -->
+            <div class="plan-features-list">
+              <div class="feature-item pro"><span class="feat-icon check"><span class="material-icons">check</span></span> Fibra Óptica 100% até sua casa</div>
+              <div class="feature-item pro"><span class="feat-icon check"><span class="material-icons">check</span></span> Download & Upload ilimitados</div>
+              <div class="feature-item pro"><span class="feat-icon check"><span class="material-icons">check</span></span> Roteador Wi-Fi Dual-Band incluso</div>
+              <div class="feature-item pro"><span class="feat-icon check"><span class="material-icons">check</span></span> Suporte técnico local em São Tomé</div>
+              <div class="feature-item con"><span class="feat-icon cross"><span class="material-icons">close</span></span> Sem rota especial para jogos pesados</div>
+              <div class="feature-item con"><span class="feat-icon cross"><span class="material-icons">close</span></span> Streaming 4K em mais de 3 telas</div>
+            </div>
+
+            <button class="plan-details-toggle" onclick="toggleDetails(this)" aria-expanded="false">
+              <span>Ver mais detalhes</span>
+              <span class="material-icons chevron">expand_more</span>
+            </button>
+            <div class="plan-details">
+              <div class="plan-detail-item"><span class="material-icons">done</span> Sem fidelidade abusiva</div>
+              <div class="plan-detail-item"><span class="material-icons">done</span> Conecta até 6 aparelhos simultâneos</div>
+              <div class="plan-detail-item"><span class="material-icons">done</span> Instalação rápida em até 48 horas</div>
+              <p class="plan-desc">Ideal para quem quer economia, estabilidade e praticidade para o dia a dia.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- PLANO 2: 700 MEGA (TURBO - POPULAR PARA AMBOS) -->
+        <div class="plan-card featured" data-category="all res pro">
+          <div class="popular-ribbon">
+            <span class="material-icons badge-icon">star</span> O MAIS ESCOLHIDO
+          </div>
+          <div class="plan-card-img">
+            <img src="pc.jpg" alt="SaraNet 700 Mega Turbo" class="plan-bg-img" />
+            <span class="plan-badge badge-featured">
+              <span class="material-icons badge-icon">local_fire_department</span> Super Popular
+            </span>
+            <div class="plan-card-overlay">
+              <p class="plan-card-name">SaraNet Turbo</p>
+              <div class="plan-card-speed">700 <span>MEGA</span></div>
+              <p class="plan-card-lock"><span class="material-icons">verified</span> Velocidade & Baixo Ping</p>
+            </div>
+          </div>
+          <div class="plan-card-body">
+            <div class="plan-card-price">
+              <span class="plan-currency">R$</span>
+              <span class="plan-value">99</span>
+              <span class="plan-cents">,90</span>
+              <span class="plan-per">/mês</span>
+            </div>
+
+            <a href="https://wa.me/5544991055040?text=Olá!%20Gostaria%20de%20assinar%20o%20plano%20destaque%20de%20700%20Mega%20(R$99,90)." target="_blank" class="btn btn-primary plan-btn featured-btn">
+              <span class="material-icons">bolt</span> Assinar Mais Vendido
+            </a>
+
+            <!-- Prós e Contras -->
+            <div class="plan-features-list">
+              <div class="feature-item pro"><span class="feat-icon check"><span class="material-icons">check</span></span> Fibra Óptica 100% de alta velocidade</div>
+              <div class="feature-item pro"><span class="feat-icon check"><span class="material-icons">check</span></span> Download & Upload ilimitados</div>
+              <div class="feature-item pro"><span class="feat-icon check"><span class="material-icons">check</span></span> Roteador Wi-Fi 5 Gigabit incluso</div>
+              <div class="feature-item pro"><span class="feat-icon check"><span class="material-icons">check</span></span> Baixa latência (Ping reduzido em games)</div>
+              <div class="feature-item pro"><span class="feat-icon check"><span class="material-icons">check</span></span> Filmes e Séries 4K simultâneos</div>
+              <div class="feature-item con"><span class="feat-icon cross"><span class="material-icons">close</span></span> Atendimento corporativo dedicado VIP</div>
+            </div>
+
+            <button class="plan-details-toggle" onclick="toggleDetails(this)" aria-expanded="false">
+              <span>Ver mais detalhes</span>
+              <span class="material-icons chevron">expand_more</span>
+            </button>
+            <div class="plan-details">
+              <div class="plan-detail-item"><span class="material-icons">done</span> Conecta mais de 12 aparelhos</div>
+              <div class="plan-detail-item"><span class="material-icons">done</span> Chamadas de vídeo sem travamentos</div>
+              <div class="plan-detail-item"><span class="material-icons">done</span> Suporte regional prioritário</div>
+              <p class="plan-desc">O melhor equilíbrio para famílias conectadas, home office e jogos online.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- PLANO 3: 900 MEGA (EXTREMO) -->
+        <div class="plan-card" data-category="all pro">
+          <div class="plan-card-img">
+            <img src="internet-empresa.jpg" alt="SaraNet 900 Mega Extremo" class="plan-bg-img" />
+            <span class="plan-badge badge-contrast">
+              <span class="material-icons badge-icon">rocket_launch</span> Ultra Performance
+            </span>
+            <div class="plan-card-overlay">
+              <p class="plan-card-name">SaraNet Extremo</p>
+              <div class="plan-card-speed">900 <span>MEGA</span></div>
+              <p class="plan-card-lock"><span class="material-icons">verified</span> Potência Máxima</p>
+            </div>
+          </div>
+          <div class="plan-card-body">
+            <div class="plan-card-price">
+              <span class="plan-currency">R$</span>
+              <span class="plan-value">119</span>
+              <span class="plan-cents">,90</span>
+              <span class="plan-per">/mês</span>
+            </div>
+
+            <a href="https://wa.me/5544991055040?text=Olá!%20Gostaria%20de%20contratar%20o%20plano%20de%20900%20Mega%20(R$119,90)." target="_blank" class="btn btn-primary plan-btn">
+              <span class="material-icons">send</span> Contratar Plano
+            </a>
+
+            <!-- Prós e Contras -->
+            <div class="plan-features-list">
+              <div class="feature-item pro"><span class="feat-icon check"><span class="material-icons">check</span></span> Fibra Óptica 100% de máxima potência</div>
+              <div class="feature-item pro"><span class="feat-icon check"><span class="material-icons">check</span></span> Download & Upload sem restrições</div>
+              <div class="feature-item pro"><span class="feat-icon check"><span class="material-icons">check</span></span> Roteador Gigabit Dual-Band Avançado</div>
+              <div class="feature-item pro"><span class="feat-icon check"><span class="material-icons">check</span></span> Rota gamer exclusiva para jogos e lives</div>
+              <div class="feature-item pro"><span class="feat-icon check"><span class="material-icons">check</span></span> Streaming em 4K e 8K simultâneos</div>
+              <div class="feature-item pro"><span class="feat-icon check"><span class="material-icons">check</span></span> Atendimento e suporte prioritário VIP</div>
+            </div>
+
+            <button class="plan-details-toggle" onclick="toggleDetails(this)" aria-expanded="false">
+              <span>Ver mais detalhes</span>
+              <span class="material-icons chevron">expand_more</span>
+            </button>
+            <div class="plan-details">
+              <div class="plan-detail-item"><span class="material-icons">done</span> Conexão sem gargalo para casas inteligentes</div>
+              <div class="plan-detail-item"><span class="material-icons">done</span> Downloads pesados em poucos minutos</div>
+              <div class="plan-detail-item"><span class="material-icons">done</span> Excelente para empresas e escritórios</div>
+              <p class="plan-desc">A experiência máxima de internet sem limites para usuários exigentes.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- COMO ASSINAR (SEGUNDA ÁREA CLARA NO MODO ESCURO) -->
+  <section class="section steps" id="como-assinar">
+    <div class="container">
+      <div class="section-header">
+        <span class="eyebrow">SIMPLES E RÁPIDO</span>
+        <h2>Como se conectar em 4 passos</h2>
+        <p>Veja como é ágil ter a melhor fibra óptica na sua residência.</p>
+      </div>
+
+      <div class="steps-grid">
+        <div class="step-card">
+          <div class="step-badge">1</div>
+          <div class="step-icon"><span class="material-icons">chat</span></div>
+          <h3>Fale Conosco</h3>
+          <p>Mande uma mensagem no WhatsApp. Nosso time atende na hora.</p>
+        </div>
+
+        <div class="step-connector"></div>
+
+        <div class="step-card">
+          <div class="step-badge">2</div>
+          <div class="step-icon"><span class="material-icons">location_searching</span></div>
+          <h3>Viabilidade</h3>
+          <p>Localizamos sua caixa de fibra mais próxima e definimos o plano ideal.</p>
+        </div>
+
+        <div class="step-connector"></div>
+
+        <div class="step-card">
+          <div class="step-badge">3</div>
+          <div class="step-icon"><span class="material-icons">handyman</span></div>
+          <h3>Instalação</h3>
+          <p>Nossa equipe realiza a instalação profissional com roteador testado.</p>
+        </div>
+
+        <div class="step-connector"></div>
+
+        <div class="step-card">
+          <div class="step-badge">4</div>
+          <div class="step-icon"><span class="material-icons">rocket_launch</span></div>
+          <h3>Navegação</h3>
+          <p>Sua rede é ativada e você já começa a navegar em alta velocidade.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section faq" id="faq">
+    <div class="container">
+      <div class="section-header">
+        <span class="eyebrow">TIRE SUAS DÚVIDAS</span>
+        <h2>Perguntas Frequentes</h2>
+        <p>Tudo o que você precisa saber antes e depois de assinar a SaraNet.</p>
+      </div>
+
+      <div class="faq-list">
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            <span>Qual o prazo real para a instalação da internet?</span>
+            <span class="material-icons faq-icon">expand_more</span>
+          </button>
+          <div class="faq-answer">
+            <p>O nosso prazo padrão é de até <strong>48 horas úteis</strong> após a validação da viabilidade técnica no seu endereço em São Tomé e região. Em muitos casos conseguimos instalar no dia seguinte!</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            <span>Existe limite ou redução de franquia de dados mensal?</span>
+            <span class="material-icons faq-icon">expand_more</span>
+          </button>
+          <div class="faq-answer">
+            <p><strong>Não!</strong> Todos os planos da SaraNet contam com download e upload 100% ilimitados. Você pode assistir a vídeos, baixar jogos e navegar sem receio de cortes.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            <span>O roteador Wi-Fi já vem incluído no plano?</span>
+            <span class="material-icons faq-icon">expand_more</span>
+          </button>
+          <div class="faq-answer">
+            <p>Sim! Em todos os nossos pacotes você recebe um roteador moderno em regime de comodato, configurado e testado pelo técnico no momento da ativação.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            <span>Como funciona o suporte técnico se eu precisar de ajuda?</span>
+            <span class="material-icons faq-icon">expand_more</span>
+          </button>
+          <div class="faq-answer">
+            <p>Você fala diretamente com a nossa equipe em São Tomé pelo WhatsApp ou telefone. Não há call center confuso. Se preciso, o técnico vai até o local rapidamente.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONHEÇA TAMBÉM (SARA INFORMÁTICA) -->
+  <section class="section knowalso" id="loja">
+    <div class="container">
+      <div class="knowalso-inner">
+
+        <div class="knowalso-text">
+          <span class="eyebrow">LOJA FÍSICA PARCEIRA</span>
+          <div class="knowalso-logos">
+            <img src="sarabranco.png" alt="Sara Informática" class="conheca-logo logo-dark" />
+            <img src="saraamarelo.png" alt="Sara Informática" class="conheca-logo logo-light" />
+          </div>
+          <h2>Conheça a Sara Online Informática</h2>
+          <p>
+            Muito além da internet: nossa loja física parceira em São Tomé - PR oferece computadores, assistência técnica especializada e periféricos para você ficar sempre atualizado.
+          </p>
+          <ul class="knowalso-list">
+            <li><span class="material-icons">laptop</span> Venda de computadores, notebooks e periféricos gamer</li>
+            <li><span class="material-icons">build_circle</span> Manutenção preventiva, formatação e upgrades de SSD/RAM</li>
+            <li><span class="material-icons">print</span> Impressão, digitalização e serviços gráficos rápidos</li>
+            <li><span class="material-icons">phonelink_setup</span> Acessórios para celular, cabos, carregadores e películas</li>
+            <li><span class="material-icons">support</span> Atendimento presencial confiável</li>
+          </ul>
+          <a href="https://wa.me/5544991055040?text=Olá!%20Gostaria%20de%20atendimento%20na%20loja%20Sara%20Informática." target="_blank" class="btn btn-primary" style="margin-top: 24px;">
+            <span class="material-icons">chat</span> Falar com a Loja Física
+          </a>
+        </div>
+
+        <div class="knowalso-card">
+          <div class="knowalso-img">
+            <img src="Captura de tela 2026-08-13 210743.png" alt="Fachada Sara Online Informática" loading="lazy" />
+          </div>
+          <div class="knowalso-info">
+            <h3 class="knowalso-name">Sara Online Informática</h3>
+            <p class="knowalso-address">
+              <span class="material-icons">location_on</span>
+              Av. José Madureira, 979 — Centro, São Tomé - PR
+            </p>
+            <p class="knowalso-address">
+              <span class="material-icons">schedule</span>
+              Seg–Sex: 8h às 18h · Sábado: 8h às 12h
+            </p>
+            <p class="knowalso-address">
+              <span class="material-icons">phone</span>
+              (44) 99105-5040
+            </p>
+          </div>
+          <a href="https://www.google.com/maps/search/Av.+José+Madureira,+979,+São+Tomé+-+PR" target="_blank" rel="noopener" class="knowalso-map-btn">
+            <span class="material-icons">navigation</span> Abrir no Google Maps
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER CENTRALIZADO E PROFISSIONAL -->
+  <footer class="footer">
+    <div class="container footer-grid">
+
+      <!-- Coluna 1: Marca & Redes -->
+      <div class="footer-brand">
+        <img src="saranetnova.png" alt="SaraNet" class="footer-logo logo-dark" />
+        <img src="saranetnova2.png" alt="SaraNet" class="footer-logo logo-light" />
+        <p class="footer-desc">
+          Conectando São Tomé e o Noroeste Paranaense com ultra velocidade, estabilidade e atendimento humano.
+        </p>
+        <p class="footer-social-label">SIGA NOSSAS REDES</p>
+        <div class="footer-socials">
+          <a href="https://instagram.com/sarainformatica" target="_blank" rel="noopener" class="footer-social-btn insta" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+          </a>
+          <a href="https://wa.me/5544991055040" target="_blank" rel="noopener" class="footer-social-btn zap" aria-label="WhatsApp">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Coluna 2: Navegação -->
+      <div class="footer-col">
+        <p class="footer-col-title">NAVEGAÇÃO</p>
+        <nav>
+          <a href="#home">Início</a>
+          <a href="#beneficios">Benefícios</a>
+          <a href="#quem-somos">Quem Somos</a>
+          <a href="#planos">Planos de Fibra</a>
+          <a href="#como-assinar">Passo a Passo</a>
+          <a href="#faq">Dúvidas Frequentes</a>
+        </nav>
+      </div>
+
+      <!-- Coluna 3: Planos Rápidos -->
+      <div class="footer-col">
+        <p class="footer-col-title">PLANOS</p>
+        <nav>
+          <a href="#planos">400 Mega Essencial</a>
+          <a href="#planos">700 Mega Turbo</a>
+          <a href="#planos">900 Mega Extremo</a>
+          <a href="https://wa.me/5544991055040?text=Quero%20consultar%20planos%20para%20empresas." target="_blank">Planos Empresariais</a>
+        </nav>
+      </div>
+
+      <!-- Coluna 4: Contato & Atendimento -->
+      <div class="footer-col">
+        <p class="footer-col-title">ATENDIMENTO</p>
+        <nav>
+          <a href="https://wa.me/5544991055040" target="_blank">(44) 99105-5040</a>
+          <a href="mailto:contato@saranet.com.br">contato@saranet.com.br</a>
+          <a href="privacidade.html">Política de Privacidade</a>
+          <span class="footer-hours">Atendimento: Seg a Sex 8h - 18h</span>
+        </nav>
+      </div>
+
+      <!-- Coluna 5: Mapa de Localização -->
+      <div class="footer-col footer-map-col">
+        <p class="footer-col-title">ONDE ESTAMOS</p>
+        <div class="footer-map">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3697.8!2d-52.5897!3d-23.5334!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ecd0e2a1234567%3A0x0!2sAv.+Jos%C3%A9+Madureira%2C+979+-+S%C3%A3o+Tom%C3%A9%2C+PR!5e0!3m2!1spt-BR!2sbr!4v1686000000000!5m2!1spt-BR!2sbr"
+            width="100%"
+            height="135"
+            style="border:0;"
+            allowfullscreen=""
+            loading="lazy"
+            title="Localização SaraNet São Tomé"
+            referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
+        </div>
+        <p class="footer-address">
+          <span class="material-icons">location_on</span>
+          Av. José Madureira, 979 — São Tomé - PR
+        </p>
+      </div>
+
+    </div>
+
+    <!-- Barra Inferior 100% Centralizada -->
+    <div class="footer-bottom-centered">
+      <div class="container">
+        <p class="footer-copyright-line">
+          &copy; 2026 SaraNet Telecom — Todos os direitos reservados.
+        </p>
+        <div class="footer-dev-line">
+          <span>Desenvolvido por</span>
+          <a href="https://www.zyntekconnect.com.br" target="_blank" rel="noopener" class="zyntek-link">
+            <img src="zyntek_logo_hq.png" alt="Zyntek Connect" class="footer-zyntek-logo" />
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- FAB FLUTUANTE DE ATENDIMENTO -->
+  <div class="fab-container" id="fabContainer">
+    <a href="https://wa.me/5544991055040?text=Olá!%20Vim%20pelo%20site%20da%20SaraNet." target="_blank" rel="noopener" class="fab-item" aria-label="WhatsApp Direto">
+      <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+      <span class="fab-label">WhatsApp</span>
+    </a>
+
+    <a href="https://instagram.com/sarainformatica" target="_blank" rel="noopener" class="fab-item" aria-label="Instagram">
+      <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+      <span class="fab-label">Instagram</span>
+    </a>
+
+    <button class="fab-item" id="openChatbotBtn" aria-label="Abrir Assistente Virtual">
+      <span class="material-icons" style="font-size:20px; color:var(--clr-accent);">smart_toy</span>
+      <span class="fab-label">Sara Virtual</span>
+    </button>
+
+    <button class="fab-main" id="fabMain" aria-label="Abrir canais de contato" title="Contato rápido">
+      <span class="material-icons fab-icon-open">headset_mic</span>
+      <span class="material-icons fab-icon-close">close</span>
+    </button>
+  </div>
+
+  <!-- CHATBOT VIRTUAL (100% LIMPO E PROFISSIONAL, SEM EMOJIS) -->
+  <div class="chat-window" id="chatWindow" role="dialog" aria-hidden="true">
+    <div class="chat-header">
+      <div class="chat-header-info">
+        <div class="chat-avatar">
+          <span class="material-icons">smart_toy</span>
+        </div>
+        <div>
+          <p class="chat-name">Sara Virtual</p>
+          <p class="chat-status">● Online agora</p>
+        </div>
+      </div>
+      <button class="chat-close" id="chatClose" aria-label="Fechar janela do chat">
+        <span class="material-icons">close</span>
+      </button>
+    </div>
+
+    <div class="chat-messages" id="chatMessages">
+      <div class="chat-msg bot">
+        <p>Olá! Sou a <strong>Sara</strong>, assistente virtual da SaraNet em São Tomé. Como posso te ajudar hoje?</p>
+      </div>
+      <div class="chat-suggestions">
+        <button class="chat-chip" data-answer="Nosso prazo padrão de instalação é de até <strong>48 horas úteis</strong> após a validação da viabilidade na sua rua.">
+          <span class="material-icons chip-icon">schedule</span> Prazo de instalação
+        </button>
+        <button class="chat-chip" data-answer="Todos os nossos planos são <strong>100% ilimitados</strong>, sem limite de consumo mensal e sem corte de velocidade!">
+          <span class="material-icons chip-icon">inventory_2</span> Limite de dados
+        </button>
+        <button class="chat-chip" data-answer="Nossos planos atuais são: <br>• <strong>400 Mega</strong>: R$ 79,90/mês<br>• <strong>700 Mega</strong>: R$ 99,90/mês (Campeão de vendas)<br>• <strong>900 Mega</strong>: R$ 119,90/mês<br>Todos com fibra real até o roteador!">
+          <span class="material-icons chip-icon">payments</span> Ver planos e preços
+        </button>
+        <button class="chat-chip" data-answer="Sim! Temos pacotes empresariais com suporte prioritário e rotas dedicadas. Fale com nosso consultor no botão verde abaixo.">
+          <span class="material-icons chip-icon">business</span> Planos para empresas
+        </button>
+        <button class="chat-chip" data-answer="Atendemos prioritariamente toda a área urbana de São Tomé - PR e linhas rurais próximas. Envie seu endereço no WhatsApp para checar o poste mais próximo!">
+          <span class="material-icons chip-icon">location_on</span> Verificar meu endereço
+        </button>
+      </div>
+    </div>
+
+    <div class="chat-footer">
+      <a href="https://wa.me/5544991055040?text=Olá!%20Gostaria%20de%20falar%20com%20um%20atendente%20humano." target="_blank" rel="noopener" class="chat-wpp-btn">
+        <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+        Falar com Atendente Humano
+      </a>
+    </div>
+  </div>
+
+  <!-- SCRIPTS EXTERNOS PARA O EFEITO DE PONTOS 3D -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.dots.min.js"></script>
+  
+  <!-- SCRIPT PRINCIPAL SARANET -->
+  <script src="script.js"></script>
+</body>
+</html>
