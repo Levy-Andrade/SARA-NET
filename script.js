@@ -221,10 +221,25 @@ document.addEventListener('DOMContentLoaded', () => {
   if (openChatbotBtn) openChatbotBtn.addEventListener('click', () => toggleChatbot(true));
   if (chatClose) chatClose.addEventListener('click', () => toggleChatbot(false));
 
+  // Guarda o HTML original das sugestões (fonte única) para reaproveitar no reset,
+  // evitando textos duplicados/divergentes e o bug do botão "Ver outras perguntas".
+  const initialSuggestions = chatMessages ? chatMessages.querySelector('.chat-suggestions') : null;
+  const suggestionsTemplate = initialSuggestions ? initialSuggestions.innerHTML : '';
+
   if (chatMessages) {
     chatMessages.addEventListener('click', (e) => {
+      // O botão "Ver outras perguntas" também usa a classe .chat-chip e não tem
+      // data-answer — por isso precisa ser tratado ANTES do chip genérico.
+      // Era essa sobreposição que gerava as mensagens "undefined".
+      if (e.target.closest('#chatResetBtn')) {
+        const wrap = e.target.closest('.chat-suggestions');
+        if (wrap) wrap.remove();
+        renderDefaultSuggestions();
+        return;
+      }
+
       const chip = e.target.closest('.chat-chip');
-      if (!chip) return;
+      if (!chip || !chip.dataset.answer) return;
 
       const answer = chip.dataset.answer;
       const labelEl = chip.querySelector('.chip-label');
@@ -247,38 +262,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const resetWrap = document.createElement('div');
         resetWrap.className = 'chat-suggestions';
-        resetWrap.innerHTML = `<button class="chat-chip" id="chatResetBtn">Ver outras perguntas</button>`;
+        resetWrap.innerHTML = `<button class="chat-chip chat-chip-reset" id="chatResetBtn">Ver outras perguntas</button>`;
         chatMessages.appendChild(resetWrap);
         chatMessages.scrollTop = chatMessages.scrollHeight;
-
-        const resetBtn = document.getElementById('chatResetBtn');
-        if (resetBtn) {
-          resetBtn.addEventListener('click', () => {
-            resetWrap.remove();
-            renderDefaultSuggestions();
-          });
-        }
       }, 400);
     });
   }
 
   function renderDefaultSuggestions() {
+    if (!chatMessages || !suggestionsTemplate) return;
     const wrap = document.createElement('div');
     wrap.className = 'chat-suggestions';
-    wrap.innerHTML = `
-      <button class="chat-chip" data-answer="Nosso prazo padrão de instalação é de até <strong>48 horas úteis</strong> após a consulta na sua rua.">
-        <span class="material-icons chip-icon">schedule</span> <span class="chip-label">Prazo de instalação</span>
-      </button>
-      <button class="chat-chip" data-answer="Todos os nossos planos são <strong>100% ilimitados</strong>, sem franquia mensal e sem corte de velocidade!">
-        <span class="material-icons chip-icon">inventory_2</span> <span class="chip-label">Limite de dados</span>
-      </button>
-      <button class="chat-chip" data-answer="Planos: 400 Mega (R$79,90) · 700 Mega (R$99,90) · 900 Mega (R$119,90). Todos com fibra real ponta a ponta!">
-        <span class="material-icons chip-icon">payments</span> <span class="chip-label">Ver planos e preços</span>
-      </button>
-      <button class="chat-chip" data-answer="Atendemos São Tomé e região noroeste. Para checar o poste mais próximo, fale no WhatsApp!">
-        <span class="material-icons chip-icon">location_on</span> <span class="chip-label">Verificar cobertura</span>
-      </button>
-    `;
+    wrap.innerHTML = suggestionsTemplate;
     chatMessages.appendChild(wrap);
     chatMessages.scrollTop = chatMessages.scrollHeight;
   }
